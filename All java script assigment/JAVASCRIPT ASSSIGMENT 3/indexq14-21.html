@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Questions 14 -21 till Last.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Calibri;
+            font-size: 1.1rem;
+        }
+
+        body {
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+
+        .question {
+            color: rgb(54, 54, 247);
+            font-size: 1.2rem;
+        }
+
+        .result10 {
+            margin-left: 10px;
+            /* Add a little space */
+        }
+
+        #startButton {
+            padding: 10px 35px;
+            margin-left: 130px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+        }
+
+        #startButton:hover {
+            transition: all 0.2s ease;
+            cursor: pointer;
+            background-color: rgb(54, 54, 247);
+            border: 2px solid #555;
+            box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+            color: #ccc;
+            font-size: 1.2rem;
+        }
+
+        select {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            width: 200px;
+            /* Adjust width as needed */
+            appearance: none;
+            /* Remove default select arrow (for better cross-browser styling) */
+            -webkit-appearance: none;
+            /* For Safari */
+            -moz-appearance: none;
+            /* For Firefox */
+            background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-chevron-down' viewBox='0 0 16 16'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") no-repeat right 8px center;
+            /* Add custom arrow */
+            padding-right: 30px;
+            /* Adjust padding to make space for the arrow */
+        }
+
+        select:focus {
+            outline: none;
+            /* Remove default focus outline */
+            border-color: #007bff;
+            /* Highlight border on focus */
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+            /* Add a subtle shadow on focus */
+        }
+    </style>
+</head>
+
+<body>
+    <p class="question">
+        14. Write a program to sort the below mentioned array: <br>
+        var fruits = [“strawberry”, “apple”, “orange”, "banana"]; <br>
+    </p><br>
+    <p class="result14"></p>
+    <p class="result14b"></p>
+    <script>
+        var fruits14 = ["strawberry", "apple", "orange", "banana"];
+        document.querySelector(".result14").textContent = "Original Array: " + fruits14;
+        document.querySelector(".result14b").textContent = "Sorted Array: " + fruits14.sort();
+    </script><br>
+    <p class="question">
+        15. Write a program to initialize an array with city names. Copy 3 array items from cities array to
+        selectedCities array. <br>
+        Cities list: <br>
+        [“Karachi”, “Lahore”, “Islamabad”, “Quetta”, “Peshawar”] <br>
+        Selected cities list: <br>
+        Islamabad, Quetta </p><br>
+    <p id="result15a"></p>
+    <p class="result15"></p>
+    <script>
+        var cities15 = ["Karachi", "Lahore", "Islamabad", "Quetta", "Peshawar"];
+        document.getElementById("result15a").textContent = "Original Cities: " + cities15;
+        var selectedCities15 = [];
+        selectedCities15 = cities15.slice(2, 4);
+        document.querySelector(".result15").textContent = "Selected Cities: " + selectedCities15;
+    </script><br>
+    <p class="question">
+        16. Write a program to create a single string from the below mentioned array: <br>
+        var arr = [“This ”, “ is ”, “ my ”, “ cat”]; <br>
+    </p><br>
+    <p class="result16"></p>
+
+    <script>
+        var arr16 = ["This ", " is ", " my ", " cat"];
+        // Method 1: Using the join() method (most common and easy)
+        var singleString16 = arr16.join("");
+        document.querySelector(".result16").textContent = singleString16;
+    </script> <br>
+
+    <p class="question">
+        17. Create a new array. Store values one by one in such a way that you can access the values in the order in
+        which they were stored. (FIFO-First In First Out) <br>
+        Devices: keyboard, mouse, printer, monitor.
+    </p><br>
+    <h1>Simple FIFO Queue</h1>
+    <p class="result17"></p>
+    <script>
+        // Create an empty array to serve as our queue
+        const queue = []
+
+        // Add devices to the queue
+        queue.push("keyboard")
+        queue.push("mouse")
+        queue.push("printer")
+        queue.push("monitor")
+
+        // Prepare the result string
+        let result = "Initial Queue: " + queue.join(", ") + "<br><br>"
+
+        result += "Removing items:<br>"
+        // Remove and display each item
+        while (queue.length > 0) {
+            result += "Removed: " + queue.shift() + "<br>"
+        }
+
+        result += "<br>Final Queue: " + queue.join(", ")
+
+        // Create a paragraph element with class="result17" and add it to the body
+        const resultParagraph = document.createElement("p")
+        resultParagraph.className = "result17"
+        resultParagraph.innerHTML = result
+        document.body.appendChild(resultParagraph)
+    </script><br>
+    <p class="question">
+        18. Create a new array. Store values one by one in such a way that you can access the values in reverse order.
+        (Last In-First Out). <br>
+        Devices: keyboard, mouse, printer, monitor.
+    </p><br>
+    <h1>Simple LIFO Stack</h1>
+    <p class="result18b"></p>
+    <script>
+        // Create an empty array to serve as our stack
+        const stack = [];
+        // Add devices to the stack
+        stack.push("keyboard")
+        stack.push("mouse")
+        stack.push("printer")
+        stack.push("monitor")
+
+        // Prepare the result string
+        let result18 = "Initial Stack: " + stack.join(", ") + "<br><br>";
+
+        result18 += "Removing items:<br>"
+        // Remove and display each item
+        while (stack.length > 0) {
+            result18 += "Removed: " + stack.pop() + "<br>";
+        }
+
+        result18 += "<br>Final Stack: " + stack.join(", ");
+
+        // Create a paragraph element with class="result18b" and add it to the body
+        const resultParagraph18 = document.createElement("p");
+        resultParagraph18.className = "result18b";
+        resultParagraph18.innerHTML = result18;
+        document.body.appendChild(resultParagraph18);
+    </script><br>
+    <p class="question">
+        19. Write a program to store phone manufacturers (Apple, Samsung, Motorola, Nokia, Sony & Haier) in an array.
+        Display the following dropdown/select menu in HTML in your browser using document.write().
+    </p><br>
+    <div class="result20"></div>
+
+    <script>
+        const devicesString = "keyboard,mouse,printer,monitor";
+        const devicesArray = devicesString.split(",");
+
+        let output19 = "";
+
+        for (let i = 0; i < devicesArray.length; i++) {
+            const device = devicesArray[i].trim();
+            output19 += "Out:<br>";
+            output19 += device + "<br>";
+        }
+
+        const result20 = document.querySelector(".result20");
+        if (result20) {
+            result20.innerHTML = output19; // Use innerHTML for HTML content
+        } else {
+            console.error(".result20 not found!");
+        }
+
+    </script>
+    </script> <br>
+    <p class="question">
+        20. Declare and initialize an empty multidimensional array.<br>
+        (Array of arrays). <br>
+    </p>
+    <p class="rsult20"></p>
+    <script>
+
+        const multiArray1 = new Array(3);
+
+        for (let i = 0; i < multiArray1.length; i++) {
+            multiArray1[i] = new Array(2);
+        }
+
+        multiArray1[0][0] = "value1";
+        multiArray1[0][1] = "value2";
+        multiArray1[1][0] = "value3";
+        multiArray1[1][1] = "value4";
+        multiArray1[2][0] = "value5";
+        multiArray1[2][1] = "value6";
+
+
+        // Method 1: Using a table (best for structured data)
+        let tableHTML = "<table>";
+        for (let i = 0; i < multiArray1.length; i++) {
+            tableHTML += "<tr>";
+            for (let j = 0; j < multiArray1[i].length; j++) {
+                tableHTML += "<td>" + multiArray1[i][j] + "</td>";
+            }
+            tableHTML += "</tr>";
+        }
+        tableHTML += "</table>";
+        document.querySelector(".rsult20").innerHTML = tableHTML;
+    </script> <br>
+
+    <p class="question">
+        21. Declare and initialize a multidimensional array representing the following matrix:
+    </p><br>
+    <p class="question21"></p>
+    <script>
+        // Declare and initialize the 3x4 matrix
+        const matrix = [
+            [0, 1, 2, 3],
+            [1, 0, 1, 2],
+            [2, 1, 0, 1]
+        ];
+
+        // Get the element using querySelector (corrected)
+        const resultElement = document.querySelector('.question21');
+
+        // Create the output string
+        let output21 = '';
+        for (let i = 0; i < matrix.length; i++) {
+            output21 += matrix[i].join(' ') + '<br>'; // <br> for new lines in HTML
+        }
+
+        // Set the innerHTML of the element (corrected)
+        if (resultElement) { // Check if the element exists!
+            resultElement.innerHTML = output21; // Use innerHTML to render HTML
+        } else {
+            console.error(".question21 element not found!");
+        }
+    </script>
+</body>
+
+</html>
